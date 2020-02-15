@@ -22,7 +22,21 @@ app.use(cors());
  */
  const teste_router = require('../routes/TesteRouter')
  const auth_router = require('../routes/AuthRouter')
+
+function initDB() {
+  await sequelize.sync();
+  const jane = await User.create({
+    username: 'janedoe',
+    birthday: new Date(1980, 6, 20),
+  });
+  console.log(jane.toJSON());
+}
+
+initDB();
  
+
+Temporada.hasOne(User);
+
  /** Registro das rotas */
  app.use("/auth",auth_router)
  app.use("/testes",teste_router)
