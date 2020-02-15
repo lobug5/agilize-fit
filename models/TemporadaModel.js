@@ -19,7 +19,7 @@ Temporada.init(
   { sequelize, modelName: 'temporada' });
   Temporada.associate = function(models){
     Temporada.belongsTo(models.User, {foreignKey: 'user_id', as: 'user'})
-    Temporada.belongsToMany(models.User, {through: 'UserSeason', foreignKey:'user_id', as: 'days'})
+    Temporada.belongsToMany(models.User, {through: 'UserSeason', foreignKey:'user_id', as: 'users'})
   }
 
 
