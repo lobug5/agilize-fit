@@ -17,43 +17,6 @@ app.use(body_parser.json());
  */
 app.use(cors());
 
-/**
- * Referencia e configuração de rotas
- */
-//  const _router = require('../routes/TesteRouter')
-const router_users = require('../routes/UserRouter');
-const auth_router = require('../routes/AuthRouter');
-
-
-// function initDB() {
-//   await sequelize.sync();
-//   const jane = await User.create({
-//     username: 'janedoe',
-//     birthday: new Date(1980, 6, 20),
-//   });
-//   console.log(jane.toJSON());
-// }
-
-// initDB();
-
-// Temporada.hasOne(User);
-
-/** Registro das rotas */
-app.use('/auth', auth_router);
-//  app.use("/testes",teste_router)
-app.use('/users', router_users);
-
-// const teste_router = require('../routes/TesteRouter');
-// const auth_router = require('../routes/AuthRouter');
-
-// Temporada.hasOne(User);
-
-/** Registro das rotas */
-// app.use('/auth', auth_router);
-// app.use('/testes', teste_router);
-
-/* GETS */
-
 app.get('/api/users', async (req, res) => {
   const { User } = require('../models');
   const users = await User.findAll().then();
