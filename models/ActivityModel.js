@@ -1,23 +1,20 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-
-class Activity extends Model {}
-Activity.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
+module.exports = (sequelize, DataTypes) => {
+  const Activity = sequelize.define(
+    'Activity',
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: DataTypes.STRING,
+      point: DataTypes.INTEGER,
+      isActive: DataTypes.BOOLEAN,
+      time_ini: DataTypes.STRING,
+      time_fim: DataTypes.STRING,
+      foto: DataTypes.STRING,
     },
-    name: DataTypes.STRING,
-    point: DataTypes.INTEGER,
-    isActive: DataTypes.BOOLEAN,
-    time_ini: DataTypes.STRING,
-    time_fim: DataTypes.STRING,
-    foto: DataTypes.STRING
-  },
-  { sequelize, modelName: 'activity' });
-
+    { sequelize, modelName: 'activity' },
+  );
+  return Activity;
+};
