@@ -17,6 +17,7 @@ Activity.init(
     isActive: DataTypes.BOOLEAN,
     time_ini: DataTypes.STRING,
     time_fim: DataTypes.STRING,
+    foto: DataTypes.STRING
   },
   { sequelize, modelName: 'activity' });
 

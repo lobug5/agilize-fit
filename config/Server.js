@@ -20,26 +20,28 @@ app.use(cors());
 /**
  * Referencia e configuração de rotas 
  */
- const teste_router = require('../routes/TesteRouter')
+//  const _router = require('../routes/TesteRouter')
+ const router_users = require('../routes/UserRouter')
  const auth_router = require('../routes/AuthRouter')
 
-function initDB() {
-  await sequelize.sync();
-  const jane = await User.create({
-    username: 'janedoe',
-    birthday: new Date(1980, 6, 20),
-  });
-  console.log(jane.toJSON());
-}
+// function initDB() {
+//   await sequelize.sync();
+//   const jane = await User.create({
+//     username: 'janedoe',
+//     birthday: new Date(1980, 6, 20),
+//   });
+//   console.log(jane.toJSON());
+// }
 
-initDB();
- 
+// initDB();
 
-Temporada.hasOne(User);
+// Temporada.hasOne(User);
 
  /** Registro das rotas */
  app.use("/auth",auth_router)
- app.use("/testes",teste_router)
+//  app.use("/testes",teste_router)
+ app.use("/users",router_users)
+
 
  /**
   * Ativar Passport e Middleware de Rotas JWT

@@ -14,7 +14,6 @@ Temporada.init(
     data_ini: DataTypes.DATE,
     data_fim: DataTypes.DATE,
     isActive: DataTypes.BOOLEAN,
-    foto: DataTypes.STRING
   },
   { sequelize, modelName: 'temporada' });
   Temporada.associate = function(models){
