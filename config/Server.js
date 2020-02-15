@@ -24,6 +24,7 @@ app.use(cors());
 const router_users = require('../routes/UserRouter');
 const auth_router = require('../routes/AuthRouter');
 
+
 // function initDB() {
 //   await sequelize.sync();
 //   const jane = await User.create({
@@ -51,12 +52,51 @@ app.use('/users', router_users);
 // app.use('/auth', auth_router);
 // app.use('/testes', teste_router);
 
+/* GETS */
+
 app.get('/api/users', async (req, res) => {
   const { User } = require('../models');
-
   const users = await User.findAll().then();
 
   res.json(users);
+});
+
+app.get('/api/week', async (req, res) => {
+  const { Week } = require('../models');
+  const weeks = await Week.findAll().then();
+
+  res.json(weeks);
+});
+
+app.get('/api/challenge', async (req, res) => {
+  const { Challenge } = require('../models');
+
+  const challenge = await Challenge.findAll().then();
+
+  res.json(challenge);
+});
+
+/* POST */
+
+app.post('/api/create-users', async (req, res) => {
+  const { User } = require('../models');
+  const users = await User.create().then();
+
+  res.json(users);
+});
+
+app.post('/api/create-week', async (req, res) => {
+  const { Week } = require('../models');
+  const week = await Week.create().then();
+
+  res.json(week);
+});
+
+app.post('/api/create-challenge', async (req, res) => {
+  const { Challenge } = require('../models');
+  const challenge = await Challenge.create().then();
+
+  res.json(challenge);
 });
 
 /**

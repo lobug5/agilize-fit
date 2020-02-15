@@ -10,8 +10,8 @@ exports.mssql = function(){
    }
 }   
 
-let pg = require('pg');
+// let pg = require('pg');
 /** Configuração de banco POSTGRES */
-exports.postgres = function(){
+// exports.postgres = function(){
 
-}
+// }
